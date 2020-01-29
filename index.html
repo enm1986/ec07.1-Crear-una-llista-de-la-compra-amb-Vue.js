@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Llista de la compra</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>SHOPPING LIST</h1>
+    <div id="app">
+        <h2>Total: {{ total }} €</h2>
+        <label for="product">Product</label>
+        <input type="text" id="product">
+        <label for="price">Price</label>
+        <input type="text" id="price">€
+        <br>
+        <button v-on:click="addProduct">Add Product</button>
+        <button v-on:click="deleteLast">Delete last entry</button>
+    </div>
+    <script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            total: 0
+        },
+        methods: {
+            addProduct: function() {},
+            deleteLast: function() {}
+        }
+    });
+    </script>
+</body>
+
+</html>
