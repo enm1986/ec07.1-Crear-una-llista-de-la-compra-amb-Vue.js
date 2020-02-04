@@ -7,9 +7,9 @@ var app = new Vue({
     },
     computed: {
         // calcula el precio total de la lista
-        calcTotal: function () {
+        calcTotal: function() {
             let total = 0;
-            this.list.forEach(function (element, index) {
+            this.list.forEach(function(element, index) {
                 total += element.price * element.quantity;
             });
             return total;
@@ -17,7 +17,7 @@ var app = new Vue({
     },
     methods: {
         // añadir un producto a la lista
-        addProduct: function () {
+        addProduct: function() {
             if (Number(this.inPrice) > 0 && this.inName.trim()) {
                 this.list.push({
                     "name": this.inName,
@@ -30,12 +30,26 @@ var app = new Vue({
             this.inPrice = 0;
         },
         // eliminar el último elemento de la lista
-        deleteLast: function () {
+        deleteLast: function() {
             this.list.pop();
         },
         // eliminar un producto en particular
-        deleteProduct: function (product) {
+        deleteProduct: function(product) {
             this.list.splice(this.list.indexOf(product), 1);
         }
     }
+});
+
+Vue.component('list-item', {
+    props: ['item'],
+    template: '\
+        <div class="card" v-bind:class="{minus10: item.minus10}">\
+            <span>{{ item.name }}</span>\
+            <div>\
+                <span>{{ item.price }} € x </span>\
+                <input v-model:value="item.quantity" type=number min="1" max="99">\
+                <span>uds. = {{ item.price * item.quantity }} €</span>\
+            </div>\
+            <button v-on:click="deleteProduct(item)">Delete</button>\
+        </div>'
 });

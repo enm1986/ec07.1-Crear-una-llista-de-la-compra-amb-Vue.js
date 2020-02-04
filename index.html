@@ -12,20 +12,12 @@
 <body>
     <div id="app">
         <h1>SHOPPING LIST</h1>
-        <div class="card" v-for="item in list" v-bind:class="{minus10: item.minus10}">
-            <span>{{ item.name }}</span>
-            <div>
-                <span>{{ item.price }} € x </span>
-                <input v-model:value="item.quantity" type=number min="1" max="99">
-                <span>uds. = {{ item.price * item.quantity }} €</span> 
-            </div>
-            <button v-on:click="deleteProduct(item)">Delete</button>
-        </div>
+        <list-item v-for="(item, index) in list" v-bind:item="item" v-bind:key="index"></list-item>
         <h2>Total: {{ calcTotal }} €</h2>
         <label for="product">Product</label>
-        <input type="text" v-model="inName" v-on:keyup.enter="addProduct">
+        <input type="text" v-model:value="inName" v-on:keyup.enter="addProduct">
         <label for="price">Price</label>
-        <input type="text" v-model="inPrice" v-on:keyup.enter="addProduct" size="4">€
+        <input type="text" v-model:value="inPrice" v-on:keyup.enter="addProduct" size="4">€
         <br><br>
         <button v-on:click="addProduct">Add Product</button>
         <button v-on:click="deleteLast">Delete last entry</button>
