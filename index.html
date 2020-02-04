@@ -14,8 +14,11 @@
         <h1>SHOPPING LIST</h1>
         <div class="card" v-for="item in list" v-bind:class="{minus10: item.minus10}">
             <span>{{ item.name }}</span>
-            <span>{{ item.price }} € x </span>
-            <input v-model:value="item.quantity" type=number>
+            <div>
+                <span>{{ item.price }} € x </span>
+                <input v-model:value="item.quantity" type=number min="1" max="99">
+                <span>uds. = {{ item.price * item.quantity }} €</span> 
+            </div>
             <button v-on:click="deleteProduct(item)">Delete</button>
         </div>
         <h2>Total: {{ calcTotal }} €</h2>

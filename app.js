@@ -2,8 +2,8 @@ var app = new Vue({
     el: "#app",
     data: {
         inName: '', //nombre del producto en el input
-        inPrice: null, //precio del producto en el input
-        list: [], //lista de productos
+        inPrice: 0, //precio del producto en el input
+        list: [] //lista de productos
     },
     computed: {
         // calcula el precio total de la lista
@@ -25,17 +25,16 @@ var app = new Vue({
                     "quantity": 1,
                     "minus10": Number(this.inPrice) < 10
                 });
-                console.log(Number(this.inPrice) < 10);
             }
             this.inName = '';
-            this.inPrice = null;
+            this.inPrice = 0;
         },
         // eliminar el último elemento de la lista
         deleteLast: function () {
             this.list.pop();
         },
-        deleteProduct: function (pos) {
-            this.list.splice(this.list.indexOf(pos), 1);
+        deleteProduct: function (product) {
+            this.list.splice(this.list.indexOf(product), 1);
         }
     }
 });
