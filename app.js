@@ -33,6 +33,7 @@ var app = new Vue({
         deleteLast: function () {
             this.list.pop();
         },
+        // eliminar un producto en particular
         deleteProduct: function (product) {
             this.list.splice(this.list.indexOf(product), 1);
         }

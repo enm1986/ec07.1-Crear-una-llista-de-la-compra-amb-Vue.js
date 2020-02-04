@@ -23,9 +23,9 @@
         </div>
         <h2>Total: {{ calcTotal }} €</h2>
         <label for="product">Product</label>
-        <input type="text" v-model="inName" id="product">
+        <input type="text" v-model="inName" v-on:keyup.enter="addProduct">
         <label for="price">Price</label>
-        <input type="text" v-model="inPrice" id="price" size="4">€
+        <input type="text" v-model="inPrice" v-on:keyup.enter="addProduct" size="4">€
         <br><br>
         <button v-on:click="addProduct">Add Product</button>
         <button v-on:click="deleteLast">Delete last entry</button>
