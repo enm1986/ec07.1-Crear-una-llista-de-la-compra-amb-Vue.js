@@ -1,0 +1,15 @@
+
+.card{
+    width: 500px;
+    padding: 5px;
+    margin: 5px 0;
+    background-color: bisque;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.minus10 {
+  color: red;
+}
